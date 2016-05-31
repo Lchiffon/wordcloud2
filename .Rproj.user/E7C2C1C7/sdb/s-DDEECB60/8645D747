@@ -1,0 +1,20 @@
+{
+    "collab_server" : "",
+    "contents" : "#' @import htmlwidgets\n#' @export\n# data = data.frame(name=c(\"New\",\"Old\"),\n#                   freq=c(100,30))\nwordcloud2 <- function(data,size=NULL, weightFactor=NULL) {\n  dataOut <- data\n  # create a list that contains the settings\n  if(is.null(weightFactor)){\n    weightFactor = 100/max(data[,2])\n  }\n  settings <- list(\n    weightFactor = weightFactor,\n    backgroundColor = 'white'\n  )\n  # pass the data and settings using 'x'\n  x <- list(\n    list = dataOut,\n    settings = settings\n  )\n  # create the widget\n  htmlwidgets::createWidget(\"wordcloud2\", x, width = size[1], height = size[2])\n}\n\n#'\n#' #' @export\n#' sigmaOutput <- function(outputId, width = \"100%\", height = \"400px\") {\n#'   htmlwidgets::shinyWidgetOutput(outputId, \"sigma\", width, height, package = \"sigma\")\n#' }\n#' #' @export\n#' renderSigma <- function(expr, env = parent.frame(), quoted = FALSE) {\n#' if (!quoted) { expr <- substitute(expr) } # force quoted\n#' htmlwidgets::shinyRenderWidget(expr, sigmaOutput, env, quoted = TRUE)\n#' }\n",
+    "created" : 1464684643936.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "414956112",
+    "id" : "8645D747",
+    "lastKnownWriteTime" : 1464678814,
+    "last_content_update" : 1464678814,
+    "path" : "D:/git/wordcloud2/R/hello.R",
+    "project_path" : null,
+    "properties" : {
+    },
+    "relative_order" : 3,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

@@ -2,15 +2,56 @@
 #' @export
 # data = data.frame(name=c("New","Old"),
 #                   freq=c(100,30))
-wordcloud2 <- function(data,size=NULL, weightFactor=NULL) {
-  dataOut <- data
+wordcloud2 <- function(data, size = NULL,
+                       fontFamily = '"Trebuchet MS", "Heiti TC", "Microsoft YaHei", "Arial Unicode MS", "Droid Fallback Sans", sans-serif',
+                       fontWeight = 'normal',
+                       color =  'random-dark',
+                       minSize =  0,
+                       weightFactor = NULL,
+                       backgroundColor = "white",
+                       gridSize =  8,
+                       minRotation = -pi/2,
+                       maxRotation = pi/2,
+                       shuffle = TRUE,
+                       rotateRatio = 0.1,
+                       shape = 'circle',
+                       ellipticity = 0.65,
+                       drawMask = FALSE,
+                       maskColor =  'rgba(255,0,0,0.3)',
+                       maskGapWidth =  0.3
+
+                       ) {
+  if(class(data) =="table"){
+    dataOut = data.frame(name = names(data),
+                         freq = as.vector(data))
+  }else{
+    data = as.data.frame(data)
+    dataOut = data[,1:2]
+    names(dataOut) = c("name", "freq")
+  }
+
+
   # create a list that contains the settings
   if(is.null(weightFactor)){
-    weightFactor = 100/max(data[,2])
+    weightFactor = 80/max(dataOut$freq)
   }
   settings <- list(
+    fontFamily = fontFamily,
+    fontWeight = fontWeight,
+    color =  color,
+    minSize =  minSize,
     weightFactor = weightFactor,
-    backgroundColor = 'white'
+    backgroundColor = backgroundColor,
+    gridSize =  gridSize,
+    minRotation = minRotation,
+    maxRotation = maxRotation,
+    shuffle = shuffle,
+    rotateRatio = rotateRatio,
+    shape = shape,
+    ellipticity = ellipticity,
+    drawMask = drawMask,
+    maskColor =  maskColor,
+    maskGapWidth =  maskGapWidth
   )
   # pass the data and settings using 'x'
   x <- list(
