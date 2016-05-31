@@ -9,11 +9,11 @@ wordcloud2 <- function(data, size = NULL,
                        minSize =  0,
                        weightFactor = NULL,
                        backgroundColor = "white",
-                       gridSize =  8,
-                       minRotation = -pi/2,
-                       maxRotation = pi/2,
+                       gridSize =  0,
+                       minRotation = -pi/4,
+                       maxRotation = pi/4,
                        shuffle = TRUE,
-                       rotateRatio = 0.1,
+                       rotateRatio = 0.4,
                        shape = 'circle',
                        ellipticity = 0.65,
                        drawMask = FALSE,
@@ -33,7 +33,7 @@ wordcloud2 <- function(data, size = NULL,
 
   # create a list that contains the settings
   if(is.null(weightFactor)){
-    weightFactor = 80/max(dataOut$freq)
+    weightFactor = 120/max(dataOut$freq)
   }
   settings <- list(
     fontFamily = fontFamily,
