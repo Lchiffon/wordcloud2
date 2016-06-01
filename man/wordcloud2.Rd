@@ -25,7 +25,7 @@ wordcloud2(data, size = 1, minSize = 0, gridSize =  0,
 
 \item{backgroundColor}{Color of the background.}
 
-\item{gridSize}{Size of the grid in pixels for marking the availability of the canvas <U+9225><U+FFFD>
+\item{gridSize}{Size of the grid in pixels for marking the availability of the canvas 
 the larger the grid size, the bigger the gap between words.}
 
 \item{minRotation}{If the word should rotate, the minimum rotation
@@ -73,4 +73,3 @@ wordcloud2(demoFreqC, size = 2,
 wordcloud2(demoFreqC, size = 2, minRotation = -pi/6, maxRotation = -pi/6,
   rotateRatio = 1)
 }
-
