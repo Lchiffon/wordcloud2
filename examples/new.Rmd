@@ -13,10 +13,10 @@ wordcloud2(demoFreq,size = 1)
 ```{r}
 wordcloud2(demoFreqC,size=2)
 
-wordcloud2(demoFreqC,size=1,shape='triangle-forward')
+wordcloud2(demoFreqC,size=1,shape='pentagon')
 
 wordcloud2(demoFreqC,size=2,
-           color = "random-light",backgroundColor = "black")
+           color = "random-light",backgroundColor = "grey")
 ```
 
 
