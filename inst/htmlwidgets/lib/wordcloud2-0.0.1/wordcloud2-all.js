@@ -679,6 +679,8 @@ if (!window.clearImmediate) {
       var color;
       if (getTextColor) {
         color = getTextColor(word, weight, fontSize, distance, theta);
+      } else if (settings.color instanceof Array) {
+        color = settings.color.shift() || 'black'; // pass a array in setting, default 'black'
       } else {
         color = settings.color;
       }
