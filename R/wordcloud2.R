@@ -13,11 +13,12 @@
 ##' @param data   A data frame including word and freq in each column
 ##' @param size   Font size, default is 1. The larger size means the bigger word.
 ##' @param minSize    A character string of the subtitle
-##' @param gridSize  Size of the grid in pixels for marking the availability of the canvas 
+##' @param gridSize  Size of the grid in pixels for marking the availability of the canvas
 ##' the larger the grid size, the bigger the gap between words.
 ##' @param fontFamily Font to use.
 ##' @param fontWeight Font weight to use, e.g. normal, bold or 600
-##' @param color  color of the text,'random-dark' and 'random-light' can be used.
+##' @param color  color of the text, keyword 'random-dark' and 'random-light' can be used.
+##' color vector is also supported in this param
 ##' @param backgroundColor Color of the background.
 ##' @param minRotation If the word should rotate, the minimum rotation
 ##' (in rad) the text should rotate.
@@ -56,6 +57,15 @@
 ##'            color = "random-light", backgroundColor = "grey")
 ##' wordcloud2(demoFreqC, size = 2, minRotation = -pi/6, maxRotation = -pi/6,
 ##'   rotateRatio = 1)
+##'
+##' # Color Vector
+##'
+##' colorVec = rep(c('red', 'skyblue'), length.out=nrow(demoFreq))
+##' wordcloud2(demoFreq, color = colorVec, fontWeight = "bold")
+##'
+##' wordcloud2(demoFreq,
+##'   color = ifelse(demoFreq[, 2] > 20, 'red', 'skyblue'))
+
 
 
 #' @import htmlwidgets
@@ -65,7 +75,7 @@
 wordcloud2 <- function(data,
                        size = 1,
                        fontFamily = NULL,
-                       fontWeight = 'normal',
+                       fontWeight = 'bold',
                        color =  'random-dark',
                        minSize =  0,
                        backgroundColor = "white",
@@ -93,7 +103,7 @@ wordcloud2 <- function(data,
 
   # create a list that contains the settings
 
-  weightFactor = size * 140 / max(dataOut$freq)
+  weightFactor = size * 200 / max(dataOut$freq)
 
   settings <- list(
     fontFamily = fontFamily,

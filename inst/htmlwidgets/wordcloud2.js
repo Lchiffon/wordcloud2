@@ -6,7 +6,7 @@ HTMLWidgets.widget({
     newCanvas.height = height;
     newCanvas.width = width;
     el.appendChild(newCanvas);
-    return(el.firstChild)
+    return(el.firstChild);
   },
   renderValue: function(el, x, instance) {
     // parse gexf data
@@ -14,8 +14,8 @@ HTMLWidgets.widget({
     for(var i=0; i<x.list.name.length; i++){
       listData.push([x.list.name[i], x.list.freq[i]]);
     }
-    WordCloud(el, { list: listData,
-  									weightFactor: x.settings.weightFactor,
+    WordCloud(el.firstChild, { list: listData,
+  									//weightFactor: x.settings.weightFactor,
                     //backgroundColor: x.settings.backgroundColor,
                     fontFamily: x.settings.fontFamily,
                     fontWeight: x.settings.fontWeight,
