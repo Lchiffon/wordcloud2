@@ -5,7 +5,9 @@ HTMLWidgets.widget({
     var newCanvas = document.createElement("canvas");
     newCanvas.height = height;
     newCanvas.width = width;
+
     el.appendChild(newCanvas);
+    newlabel(el);
     return(el.firstChild);
   },
   renderValue: function(el, x, instance) {
@@ -32,7 +34,8 @@ HTMLWidgets.widget({
                     ellipticity: x.settings.ellipticity,
                     drawMask: x.settings.drawMask,
                     maskColor: x.settings.maskColor,
-                    maskGapWidth: x.settings.maskGapWidth
+                    maskGapWidth: x.settings.maskGapWidth,
+                    hover: cv_handleHover
                     });
   },
 
