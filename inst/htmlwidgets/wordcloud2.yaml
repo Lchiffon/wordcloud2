@@ -5,4 +5,4 @@ dependencies:
     script:
       - wordcloud2-all.js
       - hover.js
-      - wordcloud.css
+    stylesheet: wordcloud.css
