@@ -5,7 +5,7 @@
 ##'
 ##' @usage
 ##' wordcloud2(data, size = 1, minSize = 0, gridSize =  0,
-##'     fontFamily = 'Trebuchet MS', fontWeight = 'bold',
+##'     fontFamily = 'Segoe UI', fontWeight = 'bold',
 ##'     color = 'random-dark', backgroundColor = "white",
 ##'     minRotation = -pi/4, maxRotation = pi/4, rotateRatio = 0.4,
 ##'     shape = 'circle', ellipticity = 0.65, widgetsize = NULL)
@@ -74,7 +74,7 @@
 #                   freq=c(100,30))
 wordcloud2 <- function(data,
                        size = 1,
-                       fontFamily = 'Trebuchet MS',
+                       fontFamily = 'Segoe UI',
                        fontWeight = 'bold',
                        color =  'random-dark',
                        minSize =  0,
@@ -129,7 +129,14 @@ wordcloud2 <- function(data,
     settings = settings
   )
   # create the widget
-  htmlwidgets::createWidget("wordcloud2", x, width = widgetsize[1], height = widgetsize[2])
+  htmlwidgets::createWidget("wordcloud2", x,
+                            width = widgetsize[1],
+                            height = widgetsize[2],
+                            sizingPolicy = htmlwidgets::sizingPolicy(
+                              viewer.padding = 0,
+                              browser.padding = 0,
+                              browser.fill = TRUE
+                            ))
 }
 
 
