@@ -5,7 +5,7 @@
 ##'
 ##' @usage
 ##' wordcloud2(data, size = 1, minSize = 0, gridSize =  0,
-##'     fontFamily = NULL, fontWeight = 'normal',
+##'     fontFamily = 'Trebuchet MS', fontWeight = 'bold',
 ##'     color = 'random-dark', backgroundColor = "white",
 ##'     minRotation = -pi/4, maxRotation = pi/4, rotateRatio = 0.4,
 ##'     shape = 'circle', ellipticity = 0.65, widgetsize = NULL)
@@ -74,7 +74,7 @@
 #                   freq=c(100,30))
 wordcloud2 <- function(data,
                        size = 1,
-                       fontFamily = NULL,
+                       fontFamily = 'Trebuchet MS',
                        fontWeight = 'bold',
                        color =  'random-dark',
                        minSize =  0,
@@ -103,7 +103,7 @@ wordcloud2 <- function(data,
 
   # create a list that contains the settings
 
-  weightFactor = size * 200 / max(dataOut$freq)
+  weightFactor = size * 180 / max(dataOut$freq)
 
   settings <- list(
     fontFamily = fontFamily,
