@@ -67,7 +67,7 @@ function maskInit(el,x){
   newImg.height = el.clientHeight;
   // maskCanvas = init(el, x, newImg);
 
-
+  vvalue = 128
 
 
   maskCanvas = null;
@@ -95,7 +95,7 @@ function maskInit(el,x){
         imageData.data[i + 2];
       var alpha = imageData.data[i + 3];
 
-      if (alpha < 128 || tone > 128 * 3) {
+      if (alpha < vvalue || tone > vvalue * 3) {
         // Area not to draw
         newImageData.data[i] =
           newImageData.data[i + 1] =
@@ -174,7 +174,7 @@ function mask(el,x,maskCanvas){
   // console.log(imageData)
   var newImageData = ctx.createImageData(imageData);
   for (var i = 0; i < imageData.data.length; i += 4) {
-    if (imageData.data[i + 3] > 128) {
+    if (imageData.data[i + 3] > vvalue) {
       newImageData.data[i] = bgPixel[0];
       newImageData.data[i + 1] = bgPixel[1];
       newImageData.data[i + 2] = bgPixel[2];
