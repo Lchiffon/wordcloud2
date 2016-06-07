@@ -89,7 +89,8 @@ wordcloud2 <- function(data,
                        drawMask = FALSE,
                        maskColor =  'rgba(255,0,0,0.3)',
                        maskGapWidth =  0.3,
-                       widgetsize = NULL
+                       widgetsize = NULL,
+                       figPath = NULL
                        ) {
   if(class(data) =="table"){
     dataOut = data.frame(name = names(data),
@@ -100,6 +101,26 @@ wordcloud2 <- function(data,
     names(dataOut) = c("name", "freq")
   }
 
+
+
+  if(!is.null(figPath)){
+    if(!file.exists(figPath)){
+    stop("cannot find fig in the figPath")
+    }
+    spPath = strsplit(figPath, "\\.")[[1]]
+    len = length(spPath)
+    figClass = spPath[len]
+
+    if(!figClass %in% c("jpeg","jpg","png","bmp","gif")){
+      stop("file should be a jpeg, jpg, png, bmp or gif file!")
+    }
+
+    base64 = base64enc::base64encode(figPath)
+    base64 = paste0("data:image/",figClass ,";base64,",base64)
+
+  }else{
+    base64 = NULL
+  }
 
   # create a list that contains the settings
 
@@ -121,7 +142,8 @@ wordcloud2 <- function(data,
     ellipticity = ellipticity,
     drawMask = drawMask,
     maskColor =  maskColor,
-    maskGapWidth =  maskGapWidth
+    maskGapWidth =  maskGapWidth,
+    figBase64 = base64
   )
   # pass the data and settings using 'x'
   x <- list(
