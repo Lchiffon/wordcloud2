@@ -41,7 +41,7 @@ function maskInit(el,x){
   newImg.src = str;
   newImg.style.position = 'absolute';
   newImg.style.left = 0;
-  console.log(el.clientHeight);
+  // console.log(el.clientHeight);
   newImg.width = el.clientWidth;
   newImg.height = el.clientHeight;
   // maskCanvas = init(el, x, newImg);
