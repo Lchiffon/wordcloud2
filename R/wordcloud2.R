@@ -86,9 +86,6 @@ wordcloud2 <- function(data,
                        rotateRatio = 0.4,
                        shape = 'circle',
                        ellipticity = 0.65,
-                       drawMask = FALSE,
-                       maskColor =  'rgba(255,0,0,0.3)',
-                       maskGapWidth =  0.3,
                        widgetsize = NULL,
                        figPath = NULL
                        ) {
@@ -142,21 +139,9 @@ wordcloud2 <- function(data,
     rotateRatio = rotateRatio,
     shape = shape,
     ellipticity = ellipticity,
-    drawMask = drawMask,
-    maskColor =  maskColor,
-    maskGapWidth =  maskGapWidth,
     figBase64 = base64
   )
-  # pass the data and settings using 'x'
-  # x <- list(
-  #   list = dataOut,
-  #   settings = settings
-  # )
-  # create the widget
-  # if(.Platform$OS.type == "windows"){
-  #   locate = Sys.getlocale("LC_CTYPE")
-  #   Sys.setlocale("LC_CTYPE","eng")
-  # }
+
 
   chart = htmlwidgets::createWidget("wordcloud2", settings,
                             width = widgetsize[1],

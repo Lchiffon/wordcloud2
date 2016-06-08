@@ -5,7 +5,7 @@
 \title{Create wordcloud by wordcloud2.js}
 \usage{
 wordcloud2(data, size = 1, minSize = 0, gridSize =  0,
-    fontFamily = NULL, fontWeight = 'normal',
+    fontFamily = 'Segoe UI', fontWeight = 'bold',
     color = 'random-dark', backgroundColor = "white",
     minRotation = -pi/4, maxRotation = pi/4, rotateRatio = 0.4,
     shape = 'circle', ellipticity = 0.65, widgetsize = NULL)
@@ -19,13 +19,14 @@ wordcloud2(data, size = 1, minSize = 0, gridSize =  0,
 
 \item{fontWeight}{Font weight to use, e.g. normal, bold or 600}
 
-\item{color}{color of the text,'random-dark' and 'random-light' can be used.}
+\item{color}{color of the text, keyword 'random-dark' and 'random-light' can be used.
+color vector is also supported in this param}
 
 \item{minSize}{A character string of the subtitle}
 
 \item{backgroundColor}{Color of the background.}
 
-\item{gridSize}{Size of the grid in pixels for marking the availability of the canvas 
+\item{gridSize}{Size of the grid in pixels for marking the availability of the canvas
 the larger the grid size, the bigger the gap between words.}
 
 \item{minRotation}{If the word should rotate, the minimum rotation
@@ -72,4 +73,13 @@ wordcloud2(demoFreqC, size = 2,
            color = "random-light", backgroundColor = "grey")
 wordcloud2(demoFreqC, size = 2, minRotation = -pi/6, maxRotation = -pi/6,
   rotateRatio = 1)
+
+# Color Vector
+
+colorVec = rep(c('red', 'skyblue'), length.out=nrow(demoFreq))
+wordcloud2(demoFreq, color = colorVec, fontWeight = "bold")
+
+wordcloud2(demoFreq,
+  color = ifelse(demoFreq[, 2] > 20, 'red', 'skyblue'))
 }
+

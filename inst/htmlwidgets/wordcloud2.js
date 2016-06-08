@@ -6,7 +6,6 @@ HTMLWidgets.widget({
     newCanvas.height = height;
     newCanvas.width = width;
     newCanvas.id = "canvas";
-    // newCanvas.class = "canvas";
 
     el.appendChild(newCanvas);
     newlabel(el);
@@ -22,8 +21,6 @@ HTMLWidgets.widget({
       maskInit(el,x);
     }else{
       WordCloud(el.firstChild, { list: listData,
-    									//weightFactor: x.weightFactor,
-                      //backgroundColor: x.backgroundColor,
                       fontFamily: x.fontFamily,
                       fontWeight: x.fontWeight,
                       color: x.color,
@@ -48,10 +45,7 @@ HTMLWidgets.widget({
 
   resize: function(el, width, height) {
   }
-  // Make the sigma object available as a property on the widget
-  // instance we're returning from factory(). This is generally a
-  // good idea for extensibility--it helps users of this widget
-  // interact directly with sigma, if needed.
+
 
 
 });
