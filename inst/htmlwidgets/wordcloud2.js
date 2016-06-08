@@ -15,31 +15,31 @@ HTMLWidgets.widget({
   renderValue: function(el, x, instance) {
     // parse gexf data
     listData=[];
-    for(var i=0; i<x.list.name.length; i++){
-      listData.push([x.list.name[i], x.list.freq[i]]);
+    for(var i=0; i<x.word.length; i++){
+      listData.push([x.word[i], x.freq[i]]);
     }
-    if(x.settings.figBase64){
+    if(x.figBase64){
       maskInit(el,x);
     }else{
       WordCloud(el.firstChild, { list: listData,
-    									//weightFactor: x.settings.weightFactor,
-                      //backgroundColor: x.settings.backgroundColor,
-                      fontFamily: x.settings.fontFamily,
-                      fontWeight: x.settings.fontWeight,
-                      color: x.settings.color,
-                      minSize: x.settings.minSize,
-                      weightFactor: x.settings.weightFactor,
-                      backgroundColor: x.settings.backgroundColor,
-                      gridSize: x.settings.gridSize,
-                      minRotation: x.settings.minRotation,
-                      maxRotation: x.settings.maxRotation,
-                      shuffle: x.settings.shuffle,
-                      shape: x.settings.shape,
-                      rotateRatio: x.settings.rotateRatio,
-                      ellipticity: x.settings.ellipticity,
-                      drawMask: x.settings.drawMask,
-                      maskColor: x.settings.maskColor,
-                      maskGapWidth: x.settings.maskGapWidth,
+    									//weightFactor: x.weightFactor,
+                      //backgroundColor: x.backgroundColor,
+                      fontFamily: x.fontFamily,
+                      fontWeight: x.fontWeight,
+                      color: x.color,
+                      minSize: x.minSize,
+                      weightFactor: x.weightFactor,
+                      backgroundColor: x.backgroundColor,
+                      gridSize: x.gridSize,
+                      minRotation: x.minRotation,
+                      maxRotation: x.maxRotation,
+                      shuffle: x.shuffle,
+                      shape: x.shape,
+                      rotateRatio: x.rotateRatio,
+                      ellipticity: x.ellipticity,
+                      drawMask: x.drawMask,
+                      maskColor: x.maskColor,
+                      maskGapWidth: x.maskGapWidth,
                       hover: cv_handleHover
                       });
     }

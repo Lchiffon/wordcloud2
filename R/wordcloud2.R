@@ -127,6 +127,8 @@ wordcloud2 <- function(data,
   weightFactor = size * 180 / max(dataOut$freq)
 
   settings <- list(
+    word = dataOut$name,
+    freq = dataOut$freq,
     fontFamily = fontFamily,
     fontWeight = fontWeight,
     color =  color,
@@ -146,12 +148,17 @@ wordcloud2 <- function(data,
     figBase64 = base64
   )
   # pass the data and settings using 'x'
-  x <- list(
-    list = dataOut,
-    settings = settings
-  )
+  # x <- list(
+  #   list = dataOut,
+  #   settings = settings
+  # )
   # create the widget
-  htmlwidgets::createWidget("wordcloud2", x,
+  # if(.Platform$OS.type == "windows"){
+  #   locate = Sys.getlocale("LC_CTYPE")
+  #   Sys.setlocale("LC_CTYPE","eng")
+  # }
+
+  chart = htmlwidgets::createWidget("wordcloud2", settings,
                             width = widgetsize[1],
                             height = widgetsize[2],
                             sizingPolicy = htmlwidgets::sizingPolicy(
@@ -159,6 +166,9 @@ wordcloud2 <- function(data,
                               browser.padding = 0,
                               browser.fill = TRUE
                             ))
+
+
+  chart
 }
 
 

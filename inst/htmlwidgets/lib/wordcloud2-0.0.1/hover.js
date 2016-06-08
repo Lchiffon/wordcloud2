@@ -57,7 +57,7 @@ function cv_handleHover(item,
 
 //mask function
 function maskInit(el,x){
-  str = x.settings.figBase64;
+  str = x.figBase64;
   var newImg = document.createElement("img");
   newImg.src = str;
   newImg.style.position = 'absolute';
@@ -72,7 +72,7 @@ function maskInit(el,x){
 
   maskCanvas = null;
   // var img = new Image();
-  // img.src = x.settings.figBase64;
+  // img.src = x.figBase64;
 
 
 
@@ -156,7 +156,7 @@ function mask(el,x,maskCanvas){
      another canvas and fill the specified background color. */
   var bctx = document.createElement('canvas').getContext('2d');
 
-  bctx.fillStyle = x.settings.backgroundColor || '#fff';
+  bctx.fillStyle = x.backgroundColor || '#fff';
   bctx.fillRect(0, 0, 1, 1);
   var bgPixel = bctx.getImageData(0, 0, 1, 1).data;
   // console.log(bgPixel)
@@ -197,26 +197,27 @@ function mask(el,x,maskCanvas){
 
 
   WordCloud(el.firstChild, { list: listData,
-                  //weightFactor: x.settings.weightFactor,
-                  //backgroundColor: x.settings.backgroundColor,
-                  fontFamily: x.settings.fontFamily,
-                  fontWeight: x.settings.fontWeight,
-                  color: x.settings.color,
-                  minSize: x.settings.minSize,
-                  weightFactor: x.settings.weightFactor,
-                  backgroundColor: x.settings.backgroundColor,
-                  gridSize: x.settings.gridSize,
-                  minRotation: x.settings.minRotation,
-                  maxRotation: x.settings.maxRotation,
-                  shuffle: x.settings.shuffle,
-                  shape: x.settings.shape,
-                  rotateRatio: x.settings.rotateRatio,
-                  ellipticity: x.settings.ellipticity,
+                  //weightFactor: x.weightFactor,
+                  //backgroundColor: x.backgroundColor,
+                  fontFamily: x.fontFamily,
+                  fontWeight: x.fontWeight,
+                  color: x.color,
+                  minSize: x.minSize,
+                  weightFactor: x.weightFactor,
+                  backgroundColor: x.backgroundColor,
+                  gridSize: x.gridSize,
+                  minRotation: x.minRotation,
+                  maxRotation: x.maxRotation,
+                  shuffle: x.shuffle,
+                  shape: x.shape,
+                  rotateRatio: x.rotateRatio,
+                  ellipticity: x.ellipticity,
                   // drawMask: true,
                   clearCanvas: false,
-                  // maskColor: x.settings.backgroundColor,
-                  // maskGapWidth: x.settings.maskGapWidth,
-                  hover: cv_handleHover
+                  // maskColor: x.backgroundColor,
+                  // maskGapWidth: x.maskGapWidth,
+                  hover: cv_handleHover,
+                  abortThreshold: 3000
                   });
 }
 

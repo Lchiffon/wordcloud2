@@ -36,6 +36,7 @@ wordcloud2(demoFreq, size = 2, minRotation = -pi/6, maxRotation = -pi/6,
 
 ### Chinese version
 ```
+## Sys.setlocale("LC_CTYPE","eng")
 wordcloud2(demoFreqC, size = 2, fontFamily = "微软雅黑",
            color = "random-light", backgroundColor = "grey")
 ```
