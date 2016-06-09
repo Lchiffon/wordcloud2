@@ -8,5 +8,6 @@ Description: This package is based on wordcloud2.js
 License: WTFPL
 Depends: R (>= 3.1.0)
 LazyData: TRUE
+VignetteBuilder: knitr
 Imports: htmlwidgets,
         jsonlite
