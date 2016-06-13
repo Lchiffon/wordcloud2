@@ -1,7 +1,7 @@
 Package: wordcloud2
 Type: Package
 Title: Create Wordcloud by htmlWidget.
-Version: 0.1.0
+Version: 0.2.0
 Author: Chiffon Lang
 Description: This package is based on wordcloud2.js
 <https://github.com/timdream/wordcloud2.js>.
@@ -10,3 +10,8 @@ Depends: R (>= 3.1.0)
 LazyData: TRUE
 Imports: htmlwidgets,
         jsonlite
+Suggests:
+    knitr (>= 1.8)
+Enhances: shiny (>= 0.12)
+URL: https://github.com/lchiffon/wordcloud2
+BugReports: https://github.com/lchiffon/wordcloud2/issues

@@ -87,7 +87,8 @@ wordcloud2 <- function(data,
                        shape = 'circle',
                        ellipticity = 0.65,
                        widgetsize = NULL,
-                       figPath = NULL
+                       figPath = NULL,
+                       hoverFunction = NULL
                        ) {
   if(class(data) =="table"){
     dataOut = data.frame(name = names(data),
@@ -139,7 +140,8 @@ wordcloud2 <- function(data,
     rotateRatio = rotateRatio,
     shape = shape,
     ellipticity = ellipticity,
-    figBase64 = base64
+    figBase64 = base64,
+    hover = htmlwidgets::JS(hoverFunction)
   )
 
 
