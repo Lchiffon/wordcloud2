@@ -8,7 +8,7 @@ wordcloud2(data, size = 1, minSize = 0, gridSize =  0,
     fontFamily = 'Segoe UI', fontWeight = 'bold',
     color = 'random-dark', backgroundColor = "white",
     minRotation = -pi/4, maxRotation = pi/4, rotateRatio = 0.4,
-    shape = 'circle', ellipticity = 0.65, widgetsize = NULL)
+    shape = 'circle', ellipticity = 0.65, figPath = NULL, widgetsize = NULL)
 }
 \arguments{
 \item{data}{A data frame including word and freq in each column}
@@ -44,6 +44,8 @@ Set the two value equal to keep all text in one angle.}
 \item{ellipticity}{degree of "flatness" of the shape wordcloud2.js should draw.}
 
 \item{widgetsize}{size of the widgets}
+
+\item{figPath}{The path to a figure used as a mask.}
 }
 \description{
 Function for Creating wordcloud by wordcloud2.js

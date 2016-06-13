@@ -9,6 +9,7 @@
 ##' @param data   A data frame including word and freq in each column
 ##' @param word  A word to create shape for wordcloud.
 ##' @param wordSize Parameter of the size of the word.
+##' @param letterFont Letter font
 ##' @param ...  Other parameters for wordcloud.
 ##'
 ##' @examples
@@ -18,7 +19,8 @@
 #' @export
 
 
-letterCloud = function(data, word, wordSize = 0,...){
+letterCloud = function(data, word, wordSize = 0,
+                       letterFont = NULL,...){
   fileid = paste('ID', format(Sys.time(), "%Y%m%d%H%M%S"),
                  round(proc.time()[3]*100), sep="_")
   figDir = paste0(tempdir(),"/",fileid,".png")
@@ -35,7 +37,10 @@ letterCloud = function(data, word, wordSize = 0,...){
   offset = par(mar = par()$mar)
   op = par(mar = c(0,0,0,0))
   plot.new()
-  text(0.5, 0.5, word, font = 2, cex = 1/strwidth(word) + ofCex + wordSize)
+
+  text(0.5, 0.5, word, font = 2, family = letterFont,
+       cex = 1/strwidth(word) + ofCex + wordSize)
+
   dev.off()
   par(offset)
 

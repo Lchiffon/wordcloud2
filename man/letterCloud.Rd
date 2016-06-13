@@ -13,6 +13,8 @@ letterCloud(data, word, wordSize = 0, ...)
 
 \item{wordSize}{Parameter of the size of the word.}
 
+\item{letterFont}{Letter font}
+
 \item{...}{Other parameters for wordcloud.}
 }
 \description{
