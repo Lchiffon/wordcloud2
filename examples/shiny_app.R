@@ -1,7 +1,12 @@
 library(shiny)
 library(shinyjs)
-library(EBImage)
 library(wordcloud2)
+if (!require(EBImage)) {
+  source("https://bioconductor.org/biocLite.R")
+  biocLite("EBImage")
+}
+library(EBImage)
+
 
 
 clearn_canvas = 'shinyjs.clear = function() {
