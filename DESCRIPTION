@@ -10,7 +10,8 @@ Depends: R (>= 3.1.0)
 LazyData: TRUE
 VignetteBuilder: knitr
 Imports: htmlwidgets,
-        jsonlite
+        jsonlite,
+        base64enc
 Suggests:
     knitr (>= 1.8)
 Enhances: shiny (>= 0.12)
