@@ -80,7 +80,7 @@ head(demoFreq)
 ```{r eval = F}
 wordcloud2(demoFreq, color = "random-light", backgroundColor = "grey")
 ```
-![png](ex1.png)
+![png](img/ex1.png)
 
 #### Example2: use rotations
 
