@@ -7,13 +7,18 @@
 wordcloud2(data, size = 1, minSize = 0, gridSize =  0,
     fontFamily = 'Segoe UI', fontWeight = 'bold',
     color = 'random-dark', backgroundColor = "white",
-    minRotation = -pi/4, maxRotation = pi/4, rotateRatio = 0.4,
-    shape = 'circle', ellipticity = 0.65, figPath = NULL, widgetsize = NULL)
+    minRotation = -pi/4, maxRotation = pi/4, shuffle = TRUE, rotateRatio = 0.4,
+    shape = 'circle', ellipticity = 0.65, widgetsize = NULL, figPath = NULL, hoverFunction = NULL)
 }
 \arguments{
 \item{data}{A data frame including word and freq in each column}
 
 \item{size}{Font size, default is 1. The larger size means the bigger word.}
+
+\item{minSize}{A character string of the subtitle}
+
+\item{gridSize}{Size of the grid in pixels for marking the availability of the canvas
+the larger the grid size, the bigger the gap between words.}
 
 \item{fontFamily}{Font to use.}
 
@@ -22,18 +27,15 @@ wordcloud2(data, size = 1, minSize = 0, gridSize =  0,
 \item{color}{color of the text, keyword 'random-dark' and 'random-light' can be used.
 color vector is also supported in this param}
 
-\item{minSize}{A character string of the subtitle}
-
 \item{backgroundColor}{Color of the background.}
-
-\item{gridSize}{Size of the grid in pixels for marking the availability of the canvas
-the larger the grid size, the bigger the gap between words.}
 
 \item{minRotation}{If the word should rotate, the minimum rotation
 (in rad) the text should rotate.}
 
 \item{maxRotation}{If the word should rotate, the maximum rotation (in rad) the text should rotate.
 Set the two value equal to keep all text in one angle.}
+
+\item{shuffle}{Shuffle the points to draw so the result will be different each time for the same list and settings.}
 
 \item{rotateRatio}{Probability for the word to rotate. Set the number to 1 to always rotate.}
 
@@ -46,6 +48,9 @@ Set the two value equal to keep all text in one angle.}
 \item{widgetsize}{size of the widgets}
 
 \item{figPath}{The path to a figure used as a mask.}
+
+\item{hoverFunction}{Callback to call when the cursor enters or leaves a region occupied
+by a word. A string of java script function.}
 }
 \description{
 Function for Creating wordcloud by wordcloud2.js

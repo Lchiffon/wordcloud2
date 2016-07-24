@@ -7,8 +7,8 @@
 ##' wordcloud2(data, size = 1, minSize = 0, gridSize =  0,
 ##'     fontFamily = 'Segoe UI', fontWeight = 'bold',
 ##'     color = 'random-dark', backgroundColor = "white",
-##'     minRotation = -pi/4, maxRotation = pi/4, rotateRatio = 0.4,
-##'     shape = 'circle', ellipticity = 0.65, figPath = NULL, widgetsize = NULL)
+##'     minRotation = -pi/4, maxRotation = pi/4, shuffle = TRUE, rotateRatio = 0.4,
+##'     shape = 'circle', ellipticity = 0.65, widgetsize = NULL, figPath = NULL, hoverFunction = NULL)
 ##'
 ##' @param data   A data frame including word and freq in each column
 ##' @param size   Font size, default is 1. The larger size means the bigger word.
@@ -24,6 +24,7 @@
 ##' (in rad) the text should rotate.
 ##' @param maxRotation If the word should rotate, the maximum rotation (in rad) the text should rotate.
 ##' Set the two value equal to keep all text in one angle.
+##' @param shuffle  Shuffle the points to draw so the result will be different each time for the same list and settings.
 ##' @param rotateRatio Probability for the word to rotate. Set the number to 1 to always rotate.
 ##' @param shape The shape of the "cloud" to draw. Can be a keyword present. Available presents are 'circle'
 ##'  (default), 'cardioid' (apple or heart shape curve, the most known polar equation),
@@ -31,7 +32,8 @@
 ##' @param ellipticity degree of "flatness" of the shape wordcloud2.js should draw.
 ##' @param figPath The path to a figure used as a mask.
 ##' @param widgetsize size of the widgets
-##'
+##' @param hoverFunction Callback to call when the cursor enters or leaves a region occupied
+##' by a word. A string of java script function.
 ##'
 ##' @examples
 ##'library(wordcloud2)
@@ -75,12 +77,12 @@
 #                   freq=c(100,30))
 wordcloud2 <- function(data,
                        size = 1,
+                       minSize =  0,
+                       gridSize =  0,
                        fontFamily = 'Segoe UI',
                        fontWeight = 'bold',
                        color =  'random-dark',
-                       minSize =  0,
                        backgroundColor = "white",
-                       gridSize =  0,
                        minRotation = -pi/4,
                        maxRotation = pi/4,
                        shuffle = TRUE,

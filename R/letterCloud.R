@@ -4,7 +4,7 @@
 ##' Function for Creating wordcloud with the shape of a word
 ##'
 ##' @usage
-##' letterCloud(data, word, wordSize = 0, ...)
+##' letterCloud(data, word, wordSize = 0, letterFont = NULL, ...)
 ##'
 ##' @param data   A data frame including word and freq in each column
 ##' @param word  A word to create shape for wordcloud.

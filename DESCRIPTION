@@ -1,17 +1,16 @@
 Package: wordcloud2
 Type: Package
-Title: Create Wordcloud by htmlWidget.
+Title: Create Word Cloud by htmlWidget
 Version: 0.2.0
 Author: Dawei Lang
-Description: This package is based on wordcloud2.js
-<https://github.com/timdream/wordcloud2.js>.
+Description: A fast visualization tool for creating wordcloud
+  by using wordcloud2.js.
 License: GPL-2
 Depends: R (>= 3.1.0)
 LazyData: TRUE
 VignetteBuilder: knitr
 Imports: htmlwidgets,
-        jsonlite,
-        base64enc
+        base64enc,
 Suggests:
     knitr (>= 1.8)
 Enhances: shiny (>= 0.12)

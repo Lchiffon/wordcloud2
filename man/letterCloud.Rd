@@ -4,7 +4,7 @@
 \alias{letterCloud}
 \title{Create wordcloud with the shape of a word}
 \usage{
-letterCloud(data, word, wordSize = 0, ...)
+letterCloud(data, word, wordSize = 0, letterFont = NULL, ...)
 }
 \arguments{
 \item{data}{A data frame including word and freq in each column}
