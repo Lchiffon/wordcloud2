@@ -7,8 +7,9 @@
 ##' wordcloud2(data, size = 1, minSize = 0, gridSize =  0,
 ##'     fontFamily = 'Segoe UI', fontWeight = 'bold',
 ##'     color = 'random-dark', backgroundColor = "white",
-##'     minRotation = -pi/4, maxRotation = pi/4, shuffle = TRUE, rotateRatio = 0.4,
-##'     shape = 'circle', ellipticity = 0.65, widgetsize = NULL, figPath = NULL, hoverFunction = NULL)
+##'     minRotation = -pi/4, maxRotation = pi/4, shuffle = TRUE,
+##'     rotateRatio = 0.4, shape = 'circle', ellipticity = 0.65,
+##'     widgetsize = NULL, figPath = NULL, hoverFunction = NULL)
 ##'
 ##' @param data   A data frame including word and freq in each column
 ##' @param size   Font size, default is 1. The larger size means the bigger word.

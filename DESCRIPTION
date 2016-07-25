@@ -4,16 +4,21 @@ Title: Create Word Cloud by htmlWidget
 Version: 0.2.0
 Author: Dawei Lang
 Description: A fast visualization tool for creating wordcloud
-  by using wordcloud2.js.
+    by using wordcloud2.js.
 License: GPL-2
-Depends: R (>= 3.1.0)
+Depends:
+    R (>= 3.1.0)
 LazyData: TRUE
 VignetteBuilder: knitr
-Imports: htmlwidgets,
-        base64enc,
+Imports:
+    htmlwidgets,
+    base64enc,
+    grDevices,
+    graphics
 Suggests:
-    knitr (>= 1.8)
+    knitr
 Enhances: shiny (>= 0.12)
 URL: https://github.com/lchiffon/wordcloud2
 BugReports: https://github.com/lchiffon/wordcloud2/issues
 Maintainer: Dawei Lang <chiffonlang@icloud.com>
+RoxygenNote: 5.0.1
