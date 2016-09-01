@@ -11,7 +11,7 @@ HTMLWidgets.widget({
     var newCanvas = document.createElement("canvas");
     newCanvas.height = height;
     newCanvas.width = width;
-    newCanvas.id = "canvas";
+    newCanvas.id = el.id + "-canvas";
 
     el.appendChild(newCanvas);
     newlabel(el);
