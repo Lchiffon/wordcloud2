@@ -92,18 +92,8 @@ function maskInit(el,x){
 
     ctx.putImageData(newImageData, 0, 0);
 
-  mask(el, x, maskCanvas);
-
-}
-
-
-
-function mask(el,x,maskCanvas){
-  // options.clearCanvas = false;
-
-  /* Determine bgPixel by creating
-     another canvas and fill the specified background color. */
-  var bctx = document.createElement('canvas').getContext('2d');
+  //mask(el, x, maskCanvas);
+ var bctx = document.createElement('canvas').getContext('2d');
 
   bctx.fillStyle = x.backgroundColor || '#fff';
   bctx.fillRect(0, 0, 1, 1);
@@ -114,15 +104,15 @@ function mask(el,x,maskCanvas){
 
   maskCanvasScaled.width = el.clientWidth;
   maskCanvasScaled.height = el.clientHeight;
-  var ctx = maskCanvasScaled.getContext('2d');
-  console.log(maskCanvasScaled)
+  ctx = maskCanvasScaled.getContext('2d');
+  console.log(maskCanvasScaled);
   ctx.drawImage(maskCanvas,
     0, 0, maskCanvas.width, maskCanvas.height,
     0, 0, maskCanvasScaled.width, maskCanvasScaled.height);
 
-  var imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+  imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
 
-  var newImageData = ctx.createImageData(imageData);
+  newImageData = ctx.createImageData(imageData);
   for (var i = 0; i < imageData.data.length; i += 4) {
     if (imageData.data[i + 3] > vvalue) {
       newImageData.data[i] = bgPixel[0];
@@ -165,3 +155,14 @@ function mask(el,x,maskCanvas){
                   abortThreshold: 3000
                   });
 }
+
+
+
+//function mask(el,x,maskCanvas){
+  // options.clearCanvas = false;
+
+  /* Determine bgPixel by creating
+     another canvas and fill the specified background color. */
+
+
+//}
