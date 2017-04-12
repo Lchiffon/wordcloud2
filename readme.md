@@ -1,4 +1,9 @@
 ## wordcloud2
+
+[![CRAN](https://www.r-pkg.org/badges/version/wordcloud2)](https://cran.r-project.org/package=wordcloud2)
+![Downloads](https://cranlogs.r-pkg.org/badges/wordcloud2)
+[![Build status](https://ci.appveyor.com/api/projects/status/wj5afxb1v42h8oui?svg=true)](https://ci.appveyor.com/project/lchiffon/wordcloud2)
+
 R interface to wordcloud for data visualization.
 Timdream's [wordcloud2.js](https://github.com/timdream/wordcloud2.js) is used in this package.
 
@@ -42,4 +47,3 @@ wordcloud2(demoFreqC, size = 2, fontFamily = "微软雅黑",
 ```
 
 ![1](examples/img/4.png)
-
