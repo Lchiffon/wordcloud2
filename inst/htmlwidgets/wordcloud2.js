@@ -21,7 +21,10 @@ HTMLWidgets.widget({
           listData.push([x.word[i], x.freq[i]]);
         }
      if(x.figBase64){
+
         maskInit(el,x);
+        console.log(3)
+
       }else{
         WordCloud(el.firstChild, { list: listData,
                         fontFamily: x.fontFamily,

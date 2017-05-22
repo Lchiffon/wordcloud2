@@ -154,12 +154,20 @@ wordcloud2 <- function(data,
                             height = widgetsize[2],
                             sizingPolicy = htmlwidgets::sizingPolicy(
                               viewer.padding = 0,
+                              # viewer.suppress = T,
                               browser.padding = 0,
                               browser.fill = TRUE
                             ))
 
 
-  chart
+  htmlwidgets::onRender(chart,"function(el,x){
+                        console.log(123);
+                        if(!iii){
+                          window.location.reload();
+                          iii = False;
+
+                        }
+  }")
 }
 
 
