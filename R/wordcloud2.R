@@ -94,7 +94,7 @@ wordcloud2 <- function(data,
                        figPath = NULL,
                        hoverFunction = NULL
                        ) {
-  if(class(data) =="table"){
+  if("table" %in% class(data)){
     dataOut = data.frame(name = names(data),
                          freq = as.vector(data))
   }else{
