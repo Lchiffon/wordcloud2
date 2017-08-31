@@ -13,7 +13,7 @@
 ##'
 ##' @param data   A data frame including word and freq in each column
 ##' @param size   Font size, default is 1. The larger size means the bigger word.
-##' @param minSize    A character string of the subtitle
+##' @param minSize  minimum font size to draw on the canvas.
 ##' @param gridSize  Size of the grid in pixels for marking the availability of the canvas
 ##' the larger the grid size, the bigger the gap between words.
 ##' @param fontFamily Font to use.
