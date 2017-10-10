@@ -9,7 +9,7 @@
 ##'     color = 'random-dark', backgroundColor = "white",
 ##'     minRotation = -pi/4, maxRotation = pi/4, shuffle = TRUE,
 ##'     rotateRatio = 0.4, shape = 'circle', ellipticity = 0.65,
-##'     widgetsize = NULL, figPath = NULL, hoverFunction = NULL)
+##'     widgetsize = NULL, figPath = NULL, hoverFunction = NULL, seed = NULL)
 ##'
 ##' @param data   A data frame including word and freq in each column
 ##' @param size   Font size, default is 1. The larger size means the bigger word.
@@ -35,6 +35,7 @@
 ##' @param widgetsize size of the widgets
 ##' @param hoverFunction Callback to call when the cursor enters or leaves a region occupied
 ##' by a word. A string of java script function.
+##' @param seed Seed to pass to the JS library. Useful if you want a reproducible figure.
 ##'
 ##' @examples
 ##'library(wordcloud2)
@@ -92,7 +93,8 @@ wordcloud2 <- function(data,
                        ellipticity = 0.65,
                        widgetsize = NULL,
                        figPath = NULL,
-                       hoverFunction = NULL
+                       hoverFunction = NULL,
+                       seed = NULL
                        ) {
   if("table" %in% class(data)){
     dataOut = data.frame(name = names(data),
@@ -145,9 +147,9 @@ wordcloud2 <- function(data,
     shape = shape,
     ellipticity = ellipticity,
     figBase64 = base64,
-    hover = htmlwidgets::JS(hoverFunction)
+    hover = htmlwidgets::JS(hoverFunction),
+    seed = seed
   )
-
 
   chart = htmlwidgets::createWidget("wordcloud2", settings,
                             width = widgetsize[1],

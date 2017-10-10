@@ -43,7 +43,8 @@ HTMLWidgets.widget({
                         drawMask: x.drawMask,
                         maskColor: x.maskColor,
                         maskGapWidth: x.maskGapWidth,
-                        hover: x.hover || cv_handleHover
+                        hover: x.hover || cv_handleHover,
+                        seed: x.seed
                         });
       }
     },

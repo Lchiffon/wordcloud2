@@ -21,4 +21,4 @@ Enhances: shiny (>= 0.12)
 URL: https://github.com/lchiffon/wordcloud2
 BugReports: https://github.com/lchiffon/wordcloud2/issues
 Maintainer: Dawei Lang <chiffonlang@icloud.com>
-RoxygenNote: 5.0.1
+RoxygenNote: 6.0.1
