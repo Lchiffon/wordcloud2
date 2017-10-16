@@ -208,7 +208,9 @@ if (!window.clearImmediate) {
       classes: null,
 
       hover: null,
-      click: null
+      click: null,
+
+      seed: null
     };
 
     if (options) {
@@ -217,6 +219,19 @@ if (!window.clearImmediate) {
           settings[key] = options[key];
         }
       }
+    }
+
+    /* Define a random function using a seed */
+    var random;
+    if (settings.seed === null) {
+      random = function random() {
+        return Math.random();
+      };
+    } else {
+      random = function random() {
+        var x = Math.sin(settings.seed++) * 10000;
+        return x - Math.floor(x);
+      };
     }
 
     /* Convert weightFactor into a function */
@@ -333,9 +348,9 @@ if (!window.clearImmediate) {
     var getTextColor;
     function random_hsl_color(min, max) {
       return 'hsl(' +
-        (Math.random() * 360).toFixed() + ',' +
-        (Math.random() * 30 + 70).toFixed() + '%,' +
-        (Math.random() * (max - min) + min).toFixed() + '%)';
+        (random() * 360).toFixed() + ',' +
+        (random() * 30 + 70).toFixed() + '%,' +
+        (random() * (max - min) + min).toFixed() + '%)';
     }
     switch (settings.color) {
       case 'random-dark':
@@ -468,7 +483,7 @@ if (!window.clearImmediate) {
         return 0;
       }
 
-      if (Math.random() > settings.rotateRatio) {
+      if (random() > settings.rotateRatio) {
         return 0;
       }
 
@@ -476,7 +491,7 @@ if (!window.clearImmediate) {
         return minRotation;
       }
 
-      return minRotation + Math.random() * rotationRange;
+      return minRotation + random() * rotationRange;
     };
 
     var getTextInfo = function getTextInfo(word, weight, rotateDeg) {
