@@ -147,7 +147,7 @@ if (!window.clearImmediate) {
   // Based on http://jsfromhell.com/array/shuffle
   var shuffleArray = function shuffleArray(arr) {
     for (var j, x, i = arr.length; i;
-      j = Math.floor(random() * i),
+      j = Math.floor(Math.random() * i),
       x = arr[--i], arr[i] = arr[j],
       arr[j] = x) {}
     return arr;

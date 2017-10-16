@@ -163,10 +163,12 @@ wordcloud2 <- function(data,
 
 
   htmlwidgets::onRender(chart,"function(el,x){
+                        var iii;
+                        iii = true;
                         console.log(123);
                         if(!iii){
                           window.location.reload();
-                          iii = False;
+                          iii = false;
 
                         }
   }")
