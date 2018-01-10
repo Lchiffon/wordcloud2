@@ -158,16 +158,7 @@ wordcloud2 <- function(data,
                               browser.padding = 0,
                               browser.fill = TRUE
                             ))
-
-
-  htmlwidgets::onRender(chart,"function(el,x){
-                        console.log(123);
-                        if(!iii){
-                          window.location.reload();
-                          iii = False;
-
-                        }
-  }")
+  chart
 }
 
 
