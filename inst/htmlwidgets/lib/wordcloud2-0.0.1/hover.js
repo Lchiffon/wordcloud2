@@ -2,15 +2,20 @@
 function newlabel(el){
   var newDiv = document.createElement("div");
   var newSpan = document.createElement("span");
-  newDiv.id = 'wcLabel';
-  newSpan.id = "wcSpan";
+  var id = el.id
+  newDiv.id = id + "wcLabel";
+  newDiv.className += "wcLabel";
+  newSpan.id = id + "wcSpan";
+  newSpan.className += "wcSpan";
   el.appendChild(newDiv);
-  document.getElementById("wcLabel").appendChild(newSpan);
+  document.getElementById(id + "wcLabel").appendChild(newSpan);
 }
 
 // hover function
 function cv_handleHover(item, dimension, evt) {
-  var el = document.getElementById("wcLabel");
+  var id = evt.path[1].id
+  var el = document.getElementById(id + "wcLabel");
+  var target = evt.target || evt.srcElement;
   if (!item) {
     el.setAttribute('hidden', true);
 
@@ -18,31 +23,27 @@ function cv_handleHover(item, dimension, evt) {
   }
 
   el.removeAttribute('hidden');
-  // console.log(evt.srcElement.offsetLeft);
 
-  el.style.left = dimension.x + evt.srcElement.offsetLeft + 'px';
-  el.style.top = dimension.y + evt.srcElement.offsetTop + 'px';
+  el.style.left = dimension.x + target.offsetLeft + 'px';
+  el.style.top = dimension.y + target.offsetTop + 'px';
   el.style.width = dimension.w + 'px';
   el.style.height = dimension.h + 'px';
 
   this.hoverDimension = dimension;
 
-  document.getElementById("wcSpan").setAttribute(
+  document.getElementById(id + "wcSpan").setAttribute(
     'data-l10n-args', JSON.stringify({ word: item[0], count: item[1] }));
-  document.getElementById("wcSpan").innerHTML =item[0]+":" + item[1];
+  document.getElementById(id + "wcSpan").innerHTML =item[0]+":" + item[1];
 
 }
 
 //mask function
 function maskInit(el,x){
-  console.log(1)
   str = x.figBase64;
-  //console.log(str)
   var newImg = new Image();
   newImg.src = str;
   newImg.style.position = 'absolute';
   newImg.style.left = 0;
-  // console.log(el.clientHeight);
   newImg.width = el.clientWidth;
   newImg.height = el.clientHeight;
   // maskCanvas = init(el, x, newImg);
@@ -55,7 +56,6 @@ function maskInit(el,x){
   var imageData = ctx.getImageData(0, 0, maskCanvas.width, maskCanvas.height);
   var newImageData = ctx.createImageData(imageData);
   // M = 0
-  console.log(imageData.data.length);
   for (var i = 0; i < imageData.data.length; i += 4) {
     var tone = imageData.data[i] +
       imageData.data[i + 1] +
@@ -84,12 +84,10 @@ function maskInit(el,x){
   bctx.fillStyle = x.backgroundColor || '#fff';
   bctx.fillRect(0, 0, 1, 1);
   var bgPixel = bctx.getImageData(0, 0, 1, 1).data;
-  console.log(bgPixel);
   var maskCanvasScaled = document.createElement('canvas');
   maskCanvasScaled.width = el.clientWidth;
   maskCanvasScaled.height = el.clientHeight;
   ctx = maskCanvasScaled.getContext('2d');
-  console.log(maskCanvasScaled);
   ctx.drawImage(maskCanvas,
     0, 0, maskCanvas.width, maskCanvas.height);
 
@@ -136,4 +134,3 @@ function maskInit(el,x){
                   abortThreshold: 3000
                   });
 }
-

@@ -149,7 +149,7 @@ wordcloud2 <- function(data,
   )
 
 
-  chart = htmlwidgets::createWidget("wordcloud2", settings,
+  htmlwidgets::createWidget("wordcloud2", settings,
                             width = widgetsize[1],
                             height = widgetsize[2],
                             sizingPolicy = htmlwidgets::sizingPolicy(
@@ -158,7 +158,6 @@ wordcloud2 <- function(data,
                               browser.padding = 0,
                               browser.fill = TRUE
                             ))
-  chart
 }
 
 

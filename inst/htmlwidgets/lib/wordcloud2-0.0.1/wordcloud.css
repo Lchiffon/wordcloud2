@@ -1,5 +1,5 @@
 
-#wcLabel {
+.wcLabel {
   position: absolute;
   border: 2px solid #fff;
   box-shadow: 0 0 4px 0 #008;
@@ -7,7 +7,7 @@
   /*margin: -4px 0 0 -4px;*/
   pointer-events: none; }
 
-#wcSpan {
+.wcSpan {
   position: absolute;
   top: 100%;
   left: 0;
