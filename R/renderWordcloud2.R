@@ -43,7 +43,7 @@ getClickedWord = function(cloudOutputId, inputId) {
 wordcloud2Output <- function(outputId, width = "100%", height = "400px", clickedWordInputId=paste0(outputId,"_clicked")) {
   widget_out <- htmlwidgets::shinyWidgetOutput(outputId, "wordcloud2", width, height, package = "wordcloud2")
   
-  div(getClickedWord(outputId, clickedWordInputId), widget_out)
+  shiny::div(getClickedWord(outputId, clickedWordInputId), widget_out)
 }
 
 #' @rdname wordcloud2-shiny
