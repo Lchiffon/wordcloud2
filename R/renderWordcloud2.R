@@ -37,9 +37,9 @@ getClickedWord <- function(cloudOutputId, inputId) {
   #OUPUT
   #       - referencing input in server will return a string of form word:freq (same as hover info shown in wordcloud; ie 'super:32')
   shiny::tags$script(shiny::HTML(
-    sprintf("$(document).on('click', '#%s', function() {", cloudOutputId),
-    sprintf('word = document.getElementById("%swcSpan").innerHTML;', cloudOutputId),
-    sprintf("Shiny.onInputChange('%s', word);", inputId),
+      "$(document).on('click', '#canvas', function() {",
+      'word = document.getElementById("wcSpan").innerHTML;',
+      "Shiny.onInputChange('selected_word', word);",
     "});"
   ))
 }
