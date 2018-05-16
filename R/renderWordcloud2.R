@@ -30,10 +30,7 @@
 ##' @name wordcloud2-shiny
 NULL
 
-getClickedWord <- function(cloudOutputId, inputId) {
-  #ARGUMENTS
-  #       - cloudOutputId: string; outputId of wordcloud2 obj being rendered (should be identical to the value passed to wordcloud2Output)
-  #       -       inputId: string; inputId of word clicked on (ie you will reference in server the word by input$inputId)
+getClickedWord <- function() {
   #OUPUT
   #       - referencing input in server will return a string of form word:freq (same as hover info shown in wordcloud; ie 'super:32')
   shiny::tags$script(shiny::HTML(
@@ -49,7 +46,7 @@ getClickedWord <- function(cloudOutputId, inputId) {
 wordcloud2Output <- function(outputId, width = "100%", height = "400px", clickedWordInputId=paste0(outputId,"_clicked")) {
   widget_out <- htmlwidgets::shinyWidgetOutput(outputId, "wordcloud2", width, height, package = "wordcloud2")
 
-  shiny::div(getClickedWord(outputId, clickedWordInputId), widget_out)
+  shiny::div(getClickedWord(), widget_out)
 }
 
 #' @rdname wordcloud2-shiny
