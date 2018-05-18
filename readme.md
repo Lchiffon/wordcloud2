@@ -11,7 +11,7 @@ Timdream's [wordcloud2.js](https://github.com/timdream/wordcloud2.js) is used in
 
 Bugs below are fixed:
 
-1. if you install `wordcloud2` by `install.package("wordcloud2")` (version 0.2.1), you will get the background image for either letterCloud() or the figPath option of wordcloud2.
+1. if you install `wordcloud2` by `install.packages("wordcloud2")` (version 0.2.1), you will get the background image for either letterCloud() or the figPath option of wordcloud2.
 
 2. if you install `wordcloud2` by `devtools::install_github("lchiffon/wordcloud2")` (version 0.2.0), your plot on R-shiny will be unclickable.
 
