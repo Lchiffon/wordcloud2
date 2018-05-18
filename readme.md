@@ -48,14 +48,17 @@ run the above code and click refresh, it will work.
 
 ![1](examples/img/sample.png)
 
-### Installation
+
+### Original description
+
+#### Installation
 
 ```
 devtools::install_github("lchiffon/wordcloud2")
 ```
 knitr and shiny is support in wordcloud2 package.
 
-### Example
+#### Example
 
 ```
 library(wordcloud2)
@@ -80,7 +83,7 @@ wordcloud2(demoFreq, size = 2, minRotation = -pi/6, maxRotation = -pi/6,
 ![1](examples/img/3.png)
 
 
-### Chinese version
+#### Chinese version
 ```
 ## Sys.setlocale("LC_CTYPE","eng")
 wordcloud2(demoFreqC, size = 2, fontFamily = "微软雅黑",
