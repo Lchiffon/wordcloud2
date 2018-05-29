@@ -29,13 +29,13 @@
 ##' @name wordcloud2-shiny
 NULL
 
-getClickedWord <- function() {
+getClickedWord <- function(WordInputId) {
   #OUPUT
   #       - referencing input in server will return a string of form word:freq (same as hover info shown in wordcloud; ie 'super:32')
   shiny::tags$script(shiny::HTML(
-      "$(document).on('click', '#canvas', function() {",
-      'word = document.getElementById("wcSpan").innerHTML;',
-      "Shiny.onInputChange('selected_word', word);",
+    "$(document).on('click', '#canvas', function() {",
+    'word = document.getElementById("wcSpan").innerHTML;',
+    sprintf("Shiny.onInputChange('%s', word);",WordInputId),
     "});"
   ))
 }
@@ -45,7 +45,7 @@ getClickedWord <- function() {
 wordcloud2Output <- function(outputId, width = "100%", height = "400px", clickedWordInputId="selected_word") {
   widget_out <- htmlwidgets::shinyWidgetOutput(outputId, "wordcloud2", width, height, package = "wordcloud2")
 
-  shiny::div(getClickedWord(), widget_out)
+  shiny::div(getClickedWord(clickedWordInputId), widget_out)
 }
 
 #' @rdname wordcloud2-shiny
