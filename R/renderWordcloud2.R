@@ -12,8 +12,7 @@
 ##' @param width,height Must be a valid CSS unit (like \code{"100\%"},
 ##'   \code{"400px"}, \code{"auto"}) or a number, which will be coerced to a
 ##'   string and have \code{"px"} appended.
-##' @param clickedWordInputId The input id to assign the value (see details) of the clicked word.
-##' Defaults to \code{outputId_clicked} and can be referenced in the server as \code{input$outputId_clicked}.
+##' @param clickedWordInputId can be referenced in the server as \code{input$clickedWordInputId}. Default is selected_word.
 ##' @param expr An expression that generates a networkD3 graph
 ##' @param env The environment in which to evaluate \code{expr}.
 ##' @param quoted Is \code{expr} a quoted expression (with \code{quote()})? This
@@ -43,7 +42,7 @@ getClickedWord <- function() {
 
 #' @rdname wordcloud2-shiny
 #' @export
-wordcloud2Output <- function(outputId, width = "100%", height = "400px", clickedWordInputId=paste0(outputId,"_clicked")) {
+wordcloud2Output <- function(outputId, width = "100%", height = "400px", clickedWordInputId="selected_word") {
   widget_out <- htmlwidgets::shinyWidgetOutput(outputId, "wordcloud2", width, height, package = "wordcloud2")
 
   shiny::div(getClickedWord(), widget_out)
