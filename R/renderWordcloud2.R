@@ -12,8 +12,7 @@
 ##' @param width,height Must be a valid CSS unit (like \code{"100\%"},
 ##'   \code{"400px"}, \code{"auto"}) or a number, which will be coerced to a
 ##'   string and have \code{"px"} appended.
-##' @param clickedWordInputId The input id to assign the value (see details) of the clicked word.
-##' Defaults to \code{outputId_clicked} and can be referenced in the server as \code{input$outputId_clicked}.
+##' @param clickedWordInputId can be referenced in the server as \code{input$clickedWordInputId}. Default is selected_word.
 ##' @param expr An expression that generates a networkD3 graph
 ##' @param env The environment in which to evaluate \code{expr}.
 ##' @param quoted Is \code{expr} a quoted expression (with \code{quote()})? This
@@ -30,26 +29,23 @@
 ##' @name wordcloud2-shiny
 NULL
 
-getClickedWord <- function(cloudOutputId, inputId) {
-  #ARGUMENTS
-  #       - cloudOutputId: string; outputId of wordcloud2 obj being rendered (should be identical to the value passed to wordcloud2Output)
-  #       -       inputId: string; inputId of word clicked on (ie you will reference in server the word by input$inputId)
+getClickedWord <- function(WordInputId) {
   #OUPUT
   #       - referencing input in server will return a string of form word:freq (same as hover info shown in wordcloud; ie 'super:32')
   shiny::tags$script(shiny::HTML(
-    sprintf("$(document).on('click', '#%s', function() {", cloudOutputId),
-    sprintf('word = document.getElementById("%swcSpan").innerHTML;', cloudOutputId),
-    sprintf("Shiny.onInputChange('%s', word);", inputId),
+    "$(document).on('click', '#canvas', function() {",
+    'word = document.getElementById("wcSpan").innerHTML;',
+    sprintf("Shiny.onInputChange('%s', word);",WordInputId),
     "});"
   ))
 }
 
 #' @rdname wordcloud2-shiny
 #' @export
-wordcloud2Output <- function(outputId, width = "100%", height = "400px", clickedWordInputId=paste0(outputId,"_clicked")) {
+wordcloud2Output <- function(outputId, width = "100%", height = "400px", clickedWordInputId="selected_word") {
   widget_out <- htmlwidgets::shinyWidgetOutput(outputId, "wordcloud2", width, height, package = "wordcloud2")
 
-  shiny::div(getClickedWord(outputId, clickedWordInputId), widget_out)
+  shiny::div(getClickedWord(clickedWordInputId), widget_out)
 }
 
 #' @rdname wordcloud2-shiny

@@ -11,7 +11,7 @@ wordcloud2Output(outputId, width = "100\%", height = "400px",
 renderWordcloud2(expr, env = parent.frame(), quoted = FALSE)
 
 wordcloud2Output(outputId, width = "100\%", height = "400px",
-  clickedWordInputId = paste0(outputId, "_clicked"))
+  clickedWordInputId = "selected_word")
 
 renderWordcloud2(expr, env = parent.frame(), quoted = FALSE)
 }
@@ -22,8 +22,7 @@ renderWordcloud2(expr, env = parent.frame(), quoted = FALSE)
 \code{"400px"}, \code{"auto"}) or a number, which will be coerced to a
 string and have \code{"px"} appended.}
 
-\item{clickedWordInputId}{The input id to assign the value (see details) of the clicked word.
-Defaults to \code{outputId_clicked} and can be referenced in the server as \code{input$outputId_clicked}.}
+\item{clickedWordInputId}{can be referenced in the server as \code{input$clickedWordInputId}. Default is selected_word.}
 
 \item{expr}{An expression that generates a networkD3 graph}
 
