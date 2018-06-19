@@ -11,6 +11,7 @@ function newlabel(el){
 // hover function
 function cv_handleHover(item, dimension, evt) {
   var el = document.getElementById("wcLabel");
+  var target = evt.target || evt.srcElement;
   if (!item) {
     el.setAttribute('hidden', true);
 
@@ -20,8 +21,8 @@ function cv_handleHover(item, dimension, evt) {
   el.removeAttribute('hidden');
   // console.log(evt.srcElement.offsetLeft);
 
-  el.style.left = dimension.x + evt.srcElement.offsetLeft + 'px';
-  el.style.top = dimension.y + evt.srcElement.offsetTop + 'px';
+  el.style.left = dimension.x + target.offsetLeft + 'px';
+  el.style.top = dimension.y + target.offsetTop + 'px';
   el.style.width = dimension.w + 'px';
   el.style.height = dimension.h + 'px';
 
