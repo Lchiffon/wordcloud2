@@ -55,7 +55,7 @@ shinyApp(
 
 run the above code and click refresh, it will work.
 
-![1](examples/img/new.jpg)
+![1](examples/img/new.gif)
 
 ### Updates (May 17th, 2018)
 
