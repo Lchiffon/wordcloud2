@@ -7,7 +7,7 @@
 \title{Plot wordcloud2 in shiny}
 \usage{
 wordcloud2Output(outputId, width = "100\%", height = "400px",
-                 clickedWordInputId = paste0(outputId, "_clicked"))
+                 clickedWordInputId = "selected_word")
 renderWordcloud2(expr, env = parent.frame(), quoted = FALSE)
 
 wordcloud2Output(outputId, width = "100\%", height = "400px",

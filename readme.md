@@ -7,46 +7,15 @@
 R interface to wordcloud for data visualization.
 Timdream's [wordcloud2.js](https://github.com/timdream/wordcloud2.js) is used in this package.
 
-### Updates (May 17th, 2018)
+## contributors
 
-Bugs below are fixed:
 
-1. if you install `wordcloud2` by `install.packages("wordcloud2")` (version 0.2.1), you will get the background image for either letterCloud() or the figPath option of wordcloud2.
+- [JacobXPX](https://github.com/JacobXPX)
+- [AdamSpannbauer](https://github.com/JacobXPX)
+- [ekstroem](https://github.com/ekstroem)
+- [timelyportfolio](https://github.com/timelyportfolio)
+- [AdeelK93](https://github.com/AdeelK93)
 
-2. if you install `wordcloud2` by `devtools::install_github("lchiffon/wordcloud2")` (version 0.2.0), your plot on R-shiny will be unclickable.
-
-#### Example of successfully deploying interactivate clickable wordcloud with special shape on R-shiny
-
-```
-devtools::install_github("JacobXPX/wordcloud2")
-library(shiny)
-library(wordcloud2)
-library(tm)
-
-shinyApp(
-  ui = shinyUI(fluidPage(
-    mainPanel(
-      wordcloud2Output("wordcloud", clickedWordInputId = "selected_word")
-    ),
-    
-    sidebarPanel(
-      textOutput("selected_var")
-    )
-  )),
-  server = shinyServer(function(input, output) {
-    figPath = system.file("examples/t.png",package = "wordcloud2")
-    wordcloud_plot <- wordcloud2(data = demoFreq, figPath = figPath, size = 0.6,color = "blue")
-    output$wordcloud  <- renderWordcloud2(wordcloud_plot)
-    output$selected_var <- renderText({ 
-      paste("You have selected", input$selected_word)
-    })
-  })
-)
-```
-
-run the above code and click refresh, it will work.
-
-![1](examples/img/sample.png)
 
 
 ### Original description
@@ -91,3 +60,40 @@ wordcloud2(demoFreqC, size = 2, fontFamily = "微软雅黑",
 ```
 
 ![1](examples/img/4.png)
+
+#### Example of successfully deploying interactivate clickable wordcloud with special shape on R-shiny
+
+Thanks [JacobXPX](https://github.com/JacobXPX)'s contribution to this feature:
+
+```
+devtools::install_github("JacobXPX/wordcloud2")
+# Same as:
+# devtools::install_github("lchiffon/wordcloud2")
+library(shiny)
+library(wordcloud2)
+library(tm)
+
+shinyApp(
+  ui = shinyUI(fluidPage(
+    mainPanel(
+      wordcloud2Output("wordcloud", clickedWordInputId = "selected_word")
+    ),
+    
+    sidebarPanel(
+      textOutput("selected_var")
+    )
+  )),
+  server = shinyServer(function(input, output) {
+    figPath = system.file("examples/t.png",package = "wordcloud2")
+    wordcloud_plot <- wordcloud2(data = demoFreq, figPath = figPath, size = 0.6,color = "blue")
+    output$wordcloud  <- renderWordcloud2(wordcloud_plot)
+    output$selected_var <- renderText({ 
+      paste("You have selected", input$selected_word)
+    })
+  })
+)
+```
+
+run the above code and click refresh, it will work.
+
+![1](examples/img/sample.png)
