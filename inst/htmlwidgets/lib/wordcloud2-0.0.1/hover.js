@@ -2,15 +2,21 @@
 function newlabel(el){
   var newDiv = document.createElement("div");
   var newSpan = document.createElement("span");
-  newDiv.id = 'wcLabel';
-  newSpan.id = "wcSpan";
+  var id = el.id
+  newDiv.id = id + "wcLabel";
+  newDiv.className += "wcLabel";
+  newSpan.id = id + "wcSpan";
+  newSpan.className += "wcSpan";
   el.appendChild(newDiv);
-  document.getElementById("wcLabel").appendChild(newSpan);
+  document.getElementById(id + "wcLabel").appendChild(newSpan);
 }
 
 // hover function
 function cv_handleHover(item, dimension, evt) {
-  var el = document.getElementById("wcLabel");
+  var path = evt.path || (evt.composedPath && evt.composedPath());
+  var id = path[1].id
+  var el = document.getElementById(id + "wcLabel");
+  var target = evt.target || evt.srcElement;
   if (!item) {
     el.setAttribute('hidden', true);
 
@@ -18,21 +24,19 @@ function cv_handleHover(item, dimension, evt) {
   }
 
   el.removeAttribute('hidden');
-  // console.log(evt.srcElement.offsetLeft);
 
-  el.style.left = dimension.x + evt.srcElement.offsetLeft + 'px';
-  el.style.top = dimension.y + evt.srcElement.offsetTop + 'px';
+  el.style.left = dimension.x + target.offsetLeft + 'px';
+  el.style.top = dimension.y + target.offsetTop + 'px';
   el.style.width = dimension.w + 'px';
   el.style.height = dimension.h + 'px';
 
   this.hoverDimension = dimension;
 
-  document.getElementById("wcSpan").setAttribute(
+  document.getElementById(id + "wcSpan").setAttribute(
     'data-l10n-args', JSON.stringify({ word: item[0], count: item[1] }));
-  document.getElementById("wcSpan").innerHTML =item[0]+":" + item[1];
+  document.getElementById(id + "wcSpan").innerHTML =item[0]+":" + item[1];
 
 }
-
 
 //mask function
 function maskInit(el,x){
