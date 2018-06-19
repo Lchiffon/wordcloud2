@@ -11,7 +11,7 @@ Timdream's [wordcloud2.js](https://github.com/timdream/wordcloud2.js) is used in
 
 
 - [JacobXPX](https://github.com/JacobXPX)
-- [AdamSpannbauer](https://github.com/JacobXPX)
+- [AdamSpannbauer](https://github.com/AdamSpannbauer)
 - [ekstroem](https://github.com/ekstroem)
 - [timelyportfolio](https://github.com/timelyportfolio)
 - [AdeelK93](https://github.com/AdeelK93)
