@@ -1,8 +1,8 @@
 dependencies:
   - name: wordcloud2
-    version: 0.0.1
-    src: htmlwidgets/lib/wordcloud2-0.0.1
+    version: 1.1.1
+    src: htmlwidgets/lib/wordcloud2-1.1.1
     script:
-      - wordcloud2-all.js
+      - wordcloud2.js
       - hover.js
     stylesheet: wordcloud.css
