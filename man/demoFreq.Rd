@@ -4,7 +4,9 @@
 \name{demoFreq}
 \alias{demoFreq}
 \title{Demo dataset with Words and Frequency}
-\format{A data set with 1011 observations of 2 variables, words and frequancy}
+\format{
+A data set with 1011 observations of 2 variables, words and frequancy
+}
 \usage{
 demoFreq
 }

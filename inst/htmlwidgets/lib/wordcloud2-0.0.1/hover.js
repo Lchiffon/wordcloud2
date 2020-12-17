@@ -116,22 +116,8 @@ function maskInit(el,x){
   ctx.drawImage(maskCanvasScaled, 0, 0);
 
   maskCanvasScaled = ctx = imageData = newImageData = bctx = bgPixel = undefined;
-            WordCloud(el.firstChild, { list: listData,
-                  fontFamily: x.fontFamily,
-                  fontWeight: x.fontWeight,
-                  color: x.color,
-                  minSize: x.minSize,
-                  weightFactor: x.weightFactor,
-                  backgroundColor: x.backgroundColor,
-                  gridSize: x.gridSize,
-                  minRotation: x.minRotation,
-                  maxRotation: x.maxRotation,
-                  shuffle: x.shuffle,
-                  shape: x.shape,
-                  rotateRatio: x.rotateRatio,
-                  ellipticity: x.ellipticity,
-                  clearCanvas: false,
-                  hover: x.hover || cv_handleHover,
-                  abortThreshold: 3000
-                  });
+
+  x.abortThreshold = 3000;
+  x.clearCanvas = false;
+  WordCloud(el.firstChild, x);
 }

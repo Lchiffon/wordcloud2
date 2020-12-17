@@ -2,8 +2,9 @@ Package: wordcloud2
 Type: Package
 Title: Create Word Cloud by htmlWidget
 Version: 0.2.2
-Author: Dawei Lang
-Contributer of this version: Puxin(Jacob) Xu
+Author: c(person("Dawei", "Lang", email = 'chiffonlang@icloud.com', role=c("aut", "cre")),
+  person("Puxin", "Xu", "(Jacob)", role="ctb"),
+  persion("Timothy", "Guan-tin Chien", role="aut", comment="author of wordcloud2.js"))
 Description: A fast visualization tool for creating wordcloud
     by using wordcloud2.js.
 License: GPL-2
@@ -18,8 +19,8 @@ Imports:
     graphics,
     shiny (>= 0.12)
 Suggests:
-    knitr
+    knitr, rmarkdown
 URL: https://github.com/lchiffon/wordcloud2
 BugReports: https://github.com/lchiffon/wordcloud2/issues
 Maintainer: Dawei Lang <chiffonlang@icloud.com>
-RoxygenNote: 6.0.1.9000
+RoxygenNote: 7.1.1
