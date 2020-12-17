@@ -4,7 +4,9 @@
 \name{demoFreqC}
 \alias{demoFreqC}
 \title{Demo dataset with Chinese character Words and Frequency}
-\format{A data set with 885 observations of 2 variables, words and frequancy}
+\format{
+A data set with 885 observations of 2 variables, words and frequancy
+}
 \usage{
 demoFreqC
 }

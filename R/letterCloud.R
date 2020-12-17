@@ -1,24 +1,24 @@
-##' Create wordcloud with the shape of a word
-##'
-##' @description
-##' Function for Creating wordcloud with the shape of a word
-##'
-##' @usage
-##' letterCloud(data, word, wordSize = 0, letterFont = NULL, ...)
-##'
-##' @param data   A data frame including word and freq in each column
-##' @param word  A word to create shape for wordcloud.
-##' @param wordSize Parameter of the size of the word.
-##' @param letterFont Letter font
-##' @param ...  Other parameters for wordcloud.
-##'
-##' @examples
-##' library(wordcloud2)
-##'
-##' letterCloud(demoFreq,"R")
+#' Create wordcloud with the shape of a word
+#'
+#' @description
+#' Function for Creating wordcloud with the shape of a word
+#'
+#' @usage
+#' letterCloud(data, word, wordSize = 0, letterFont = NULL, ...)
+#'
+#' @param data   A data frame including word and freq in each column
+#' @param word  A word to create shape for wordcloud.
+#' @param wordSize Parameter of the size of the word.
+#' @param letterFont Letter font
+#' @param ...  Other parameters for wordcloud.
+#' @importFrom grDevices dev.off png
+#' @importFrom graphics par plot.new strwidth text
+#' @importFrom graphics par plot.new strwidth text
+#' @examples
+#' library(wordcloud2)
+#'
+#' letterCloud(demoFreq,"R")
 #' @export
-
-
 letterCloud = function(data, word, wordSize = 0,
                        letterFont = NULL,...){
   fileid = paste('ID', format(Sys.time(), "%Y%m%d%H%M%S"),

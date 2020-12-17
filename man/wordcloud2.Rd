@@ -9,7 +9,7 @@ wordcloud2(data, size = 1, minSize = 0, gridSize =  0,
     color = 'random-dark', backgroundColor = "white",
     minRotation = -pi/4, maxRotation = pi/4, shuffle = TRUE,
     rotateRatio = 0.4, shape = 'circle', ellipticity = 0.65,
-    widgetsize = NULL, figPath = NULL, hoverFunction = NULL)
+    widgetsize = NULL, figPath = NULL, hoverFunction = NULL, ...)
 }
 \arguments{
 \item{data}{A data frame including word and freq in each column}
@@ -52,6 +52,8 @@ Set the two value equal to keep all text in one angle.}
 
 \item{hoverFunction}{Callback to call when the cursor enters or leaves a region occupied
 by a word. A string of java script function.}
+
+\item{...}{extra options, will be passed onto wordcloud2.js}
 }
 \description{
 Function for Creating wordcloud by wordcloud2.js
