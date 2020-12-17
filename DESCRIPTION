@@ -3,7 +3,8 @@ Type: Package
 Title: Create Word Cloud by htmlWidget
 Version: 0.2.2
 Author: c(person("Dawei", "Lang", email = 'chiffonlang@icloud.com', role=c("aut", "cre")),
-  person(person("Puxin", "Xu", "(Jacob)"))
+  person("Puxin", "Xu", "(Jacob)", role="ctb"),
+  persion("Timothy", "Guan-tin Chien", role="aut", comment="author of wordcloud2.js"))
 Description: A fast visualization tool for creating wordcloud
     by using wordcloud2.js.
 License: GPL-2
