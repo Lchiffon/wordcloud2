@@ -35,6 +35,7 @@
 ##' @param widgetsize size of the widgets
 ##' @param hoverFunction Callback to call when the cursor enters or leaves a region occupied
 ##' by a word. A string of java script function.
+##' @param ... extra options, will be passed onto wordcloud2.js
 ##'
 ##' @examples
 ##'library(wordcloud2)
@@ -92,7 +93,8 @@ wordcloud2 <- function(data,
                        ellipticity = 0.65,
                        widgetsize = NULL,
                        figPath = NULL,
-                       hoverFunction = NULL
+                       hoverFunction = NULL,
+                       ...
                        ) {
   if("table" %in% class(data)){
     dataOut = data.frame(name = names(data),
@@ -145,9 +147,9 @@ wordcloud2 <- function(data,
     shape = shape,
     ellipticity = ellipticity,
     figBase64 = base64,
-    hover = htmlwidgets::JS(hoverFunction)
+    hover = htmlwidgets::JS(hoverFunction),
+    ...
   )
-
 
   htmlwidgets::createWidget("wordcloud2", settings,
                             width = widgetsize[1],
