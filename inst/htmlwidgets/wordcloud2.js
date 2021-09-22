@@ -18,7 +18,7 @@ HTMLWidgets.widget({
     // parse gexf data
     listData=[];
     if (typeof(x.word) === 'string') {
-      listData.push(x.word, x.freq)
+      listData.push([x.word, x.freq])
     } else {
       for(var i=0; i<x.word.length; i++){
         listData.push([x.word[i], x.freq[i]]);
