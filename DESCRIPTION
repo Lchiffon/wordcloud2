@@ -1,7 +1,7 @@
 Package: wordcloud2
 Type: Package
 Title: Create Word Cloud by htmlWidget
-Version: 0.2.2
+Version: 0.2.3
 Author: Dawei Lang
 Contributer of this version: Puxin(Jacob) Xu
 Description: A fast visualization tool for creating wordcloud
