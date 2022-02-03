@@ -73,6 +73,7 @@
 
 
 #' @import htmlwidgets
+#' @importFrom httr GET
 #' @export
 # data = data.frame(name=c("New","Old"),
 #                   freq=c(100,30))
@@ -103,12 +104,7 @@ wordcloud2 <- function(data,
     names(dataOut) = c("name", "freq")
   }
 
-
-
   if(!is.null(figPath)){
-    if(!file.exists(figPath)){
-    stop("cannot find fig in the figPath")
-    }
     spPath = strsplit(figPath, "\\.")[[1]]
     len = length(spPath)
     figClass = spPath[len]
@@ -117,9 +113,14 @@ wordcloud2 <- function(data,
       stop("file should be a jpeg, jpg, png, bmp or gif file!")
     }
 
-    base64 = base64enc::base64encode(figPath)
-    base64 = paste0("data:image/",figClass ,";base64,",base64)
+    if(!file.exists(figPath)){
+      response = GET(figPath)
+      base64 = base64enc::base64encode(response$content)
+    } else {
 
+      base64 = base64enc::base64encode(figPath)
+    }
+    base64 = paste0("data:image/",figClass ,";base64,",base64)
   }else{
     base64 = NULL
   }

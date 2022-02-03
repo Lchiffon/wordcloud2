@@ -15,6 +15,10 @@ HTMLWidgets.widget({
     return(el.firstChild);
   },
   renderValue: function(el, x, instance) {
+    const canvas = el.children[0];
+    const context = canvas.getContext('2d');
+    context.clearRect(0, 0, el.scrollWidth, el.scrollHeight);
+
     // parse gexf data
     listData=[];
     if (typeof(x.word) === 'string') {
@@ -27,7 +31,6 @@ HTMLWidgets.widget({
 
     if (x.figBase64) {
       maskInit(el,x);
-      console.log(3)
     } else {
       WordCloud(el.firstChild, {
         list: listData,
